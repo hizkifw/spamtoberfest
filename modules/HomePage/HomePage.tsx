@@ -1,9 +1,20 @@
 import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
+import { RandomAPIResponse } from "../../pages/api/random";
+import RenderDiff from "./components/RenderDiff";
 
 const HomePage = () => {
-  const [currentItem, setCurrentItem] = React.useState({});
+  const [currentItem, setCurrentItem] = React.useState<RandomAPIResponse>(null);
+
+  const fetchNewItem = () =>
+    fetch("/api/random")
+      .then((res) => res.json())
+      .then(setCurrentItem);
+
+  React.useEffect(() => {
+    fetchNewItem();
+  }, []);
 
   return (
     <>
@@ -15,7 +26,9 @@ const HomePage = () => {
           crossOrigin="anonymous"
         />
       </Head>
-      <Container></Container>
+      <Container>
+        {!!currentItem && <RenderDiff diffText={currentItem.diff} />}
+      </Container>
     </>
   );
 };

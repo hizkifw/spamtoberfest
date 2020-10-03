@@ -1,0 +1,15 @@
+:root {
+  --diff-background-color: #161616;
+  --diff-text-color: #ffffff;
+  --diff-font-family: Consolas, Courier, monospace;
+  --diff-selection-background-color: #b3d7ff;
+  --diff-gutter-insert-background-color: #36941e;
+  --diff-gutter-delete-background-color: #e84f4f;
+  --diff-gutter-selected-background-color: #fffce0;
+  --diff-code-insert-background-color: #158615;
+  --diff-code-delete-background-color: #d23d3d;
+  --diff-code-insert-edit-background-color: #36941e;
+  --diff-code-delete-edit-background-color: #be3030;
+  --diff-code-selected-background-color: #fffce0;
+  --diff-omit-gutter-line-color: #cb2a1d;
+}

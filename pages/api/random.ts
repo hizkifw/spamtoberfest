@@ -19,7 +19,7 @@ export type RandomAPIResponse = {
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const searchResult = await fetch(
-    "https://api.github.com/search/issues?q=label:spam&sort=updated",
+    "https://api.github.com/search/issues?q=shirt+label:spam&sort=updated",
     {
       headers: {
         Accept: "application/vnd.github.v3+json",
