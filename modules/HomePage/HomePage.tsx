@@ -21,6 +21,7 @@ const HomePage = () => {
   return (
     <>
       <Head>
+        <title>Spamtoberfest</title>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/cyborg/bootstrap.min.css"
@@ -66,6 +67,14 @@ const HomePage = () => {
               <a className="text-dark" href="https://hizkifw.me">
                 HizkiFW
               </a>
+              .{" "}
+              <a
+                className="text-dark"
+                href="https://github.com/HizkiFW/spamtoberfest"
+              >
+                Source
+              </a>
+              .
             </p>
           </div>
         ) : (
