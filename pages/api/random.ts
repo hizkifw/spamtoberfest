@@ -6,6 +6,12 @@ export type RandomAPIResponse = {
   updated_at: string;
   url: string;
   id: number;
+  number: number;
+  state: string;
+  repository: {
+    slug: string;
+    url: string;
+  };
   title: string;
   body: string;
   comments: number;
@@ -39,11 +45,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.text()
   );
 
+  const repoSlug = item.repository_url.split("/").slice(-2).join("/");
+
   const response: RandomAPIResponse = {
     created_at: item.created_at,
     updated_at: item.updated_at,
     url: item.html_url,
     id: item.id,
+    number: item.number,
+    state: item.state,
+    repository: {
+      slug: repoSlug,
+      url: "https://github.com/" + repoSlug,
+    },
     title: item.title,
     body: item.body,
     comments: item.comments,
