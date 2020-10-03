@@ -44,7 +44,7 @@ const HomePage = () => {
                 </a>
                 <Card.Title>
                   {currentItem.title}
-                  <a href={currentItem.url} className="text-secondary ml-2">
+                  <a href={currentItem.url} className="text-dark ml-2">
                     #{currentItem.number}
                   </a>
                 </Card.Title>
@@ -60,6 +60,13 @@ const HomePage = () => {
               </Card.Body>
             </Card>
             <RenderDiff diffText={currentItem.diff} />
+            <div style={{ flex: 1 }} />
+            <p className="mt-4">
+              Made with 😂 by{" "}
+              <a className="text-dark" href="https://hizkifw.me">
+                HizkiFW
+              </a>
+            </p>
           </div>
         ) : (
           <ProgressBar animated now={100} variant="primary" />
