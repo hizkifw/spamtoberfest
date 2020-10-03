@@ -24,11 +24,17 @@ export type RandomAPIResponse = {
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const query = 'is:pr label:spam "improve docs"';
+  const query = "is:pr label:spam docs";
+  /**
+   * There's about 756 PRs matching the search as of this commit.
+   * At 10 per page, that's around 75 pages.
+   * @TODO improve
+   */
+  const page = Math.floor(Math.random() * 75);
   const searchResult = await fetch(
     `https://api.github.com/search/issues?q=${encodeURIComponent(
       query
-    )}&sort=updated`,
+    )}&sort=updated&per_page=10&page=${page}`,
     {
       headers: {
         Accept: "application/vnd.github.v3+json",
